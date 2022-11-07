@@ -18,7 +18,7 @@ TextStyle whiteTextStyle = GoogleFonts.poppins(
 );
 
 TextStyle greyTextStyle = GoogleFonts.poppins(
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.w300,
   color: greyColor,
 );
 
@@ -26,3 +26,10 @@ TextStyle purpleTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: purpleColor,
 );
+
+TextStyle regulerTextStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w400,
+  color: blackColor,
+);
+
+double edge = 24;
