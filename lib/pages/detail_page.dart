@@ -1,12 +1,28 @@
+import 'package:cozy_app/pages/error_page.dart';
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    launchUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        // throw (url);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ErrorPage(),
+          ),
+        );
+      }
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -236,9 +252,17 @@ class DetailPage extends StatelessWidget {
                               'Jln. Kappan Sukses No. 20\nPalembang',
                               style: greyTextStyle,
                             ),
-                            Image.asset(
-                              'assets/icons/icon_maps.png',
-                              width: 40,
+                            InkWell(
+                              onTap: () {
+                                // launchUrl(
+                                //   'https://goo.gl/maps/yyaAfc8Q4hLB9FoZ8',
+                                // );
+                                launchUrl('dnsak');
+                              },
+                              child: Image.asset(
+                                'assets/icons/icon_maps.png',
+                                width: 40,
+                              ),
                             )
                           ],
                         ),
@@ -253,7 +277,9 @@ class DetailPage extends StatelessWidget {
                         height: 50,
                         width: MediaQuery.of(context).size.width - (2 * edge),
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launchUrl('tel://+6282143087926');
+                          },
                           color: purpleColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),

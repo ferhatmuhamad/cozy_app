@@ -7,6 +7,13 @@ class Space {
   String city;
   String country;
   int rating;
+  String address;
+  String phone;
+  String mapUrl;
+  List photos;
+  int numberOfKitchen;
+  int numberOfBedroom;
+  int numberOfCupboard;
 
   Space({
     required this.id,
@@ -16,5 +23,12 @@ class Space {
     required this.city,
     required this.country,
     required this.rating,
+    required this.address,
+    required this.phone,
+    required this.mapUrl,
+    required this.photos,
+    required this.numberOfKitchen,
+    required this.numberOfBedroom,
+    required this.numberOfCupboard,
   });
 }
